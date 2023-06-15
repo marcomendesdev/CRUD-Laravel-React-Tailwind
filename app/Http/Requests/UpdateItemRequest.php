@@ -24,7 +24,7 @@ class UpdateItemRequest extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

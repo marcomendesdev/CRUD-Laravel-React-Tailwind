@@ -16,7 +16,6 @@ export default function UpdateItem({ id }) {
     const validationSchema = Yup.object({
         name: Yup.string().required("Required"),
         description: Yup.string().required("Required"),
-        // image: Yup.mixed().required("Required"),
     });
 
     const onSubmit = async (values) => {
@@ -35,7 +34,7 @@ export default function UpdateItem({ id }) {
         });
 
         console.log("Response", response);
-        navigate("/");
+        window.location.reload();
     };
 
     const fields = [
@@ -55,7 +54,10 @@ export default function UpdateItem({ id }) {
             type: "file",
             label: "Image",
             name: "image",
-            onChange: (event) => setImage(event.target.files[0]),
+            onChange: (event) => {
+                event.preventDefault();
+                setImage(event.target.files[0]);
+            },
         },
     ];
 
